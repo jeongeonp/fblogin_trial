@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txtEmail, txtBirthday, txtFriends;
     ProgressDialog mDialog;
     ImageView imgAvatar;
-    Button logout_button;
+    Button logout_button, login_button;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         imgAvatar = (ImageView) findViewById(R.id.avatar);
         logout_button = (Button) findViewById(R.id.logout_button);
-
+        //login_button = (Button)  findViewById(R.id.login_button);
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions(Arrays.asList("public_profile", "email", "user_birthday", "user_friends"));
 
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
         //If already logged in
         if(AccessToken.getCurrentAccessToken() != null) {
-            imgAvatar.setVisibility(View.VISIBLE);
+            //imgAvatar.setVisibility(View.VISIBLE);
             txtEmail.setText(AccessToken.getCurrentAccessToken().getUserId());
         }
         /*else {
@@ -122,8 +122,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LoginManager.getInstance().logOut();
-                imgAvatar.setVisibility(View.INVISIBLE);
-                txtEmail.setText("Logged out");
+                AccessToken.setCurrentAccessToken(null);
+                //imgAvatar.setVisibility(View.INVISIBLE);
+                imgAvatar.setImageResource(R.drawable.def);
+                txtEmail.setText("Logged out ;o");
                 txtBirthday.setText("");
                 txtFriends.setText("");
                 //AccessToken.getCurrentAccessToken() = null;

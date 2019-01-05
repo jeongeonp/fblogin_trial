@@ -7,6 +7,16 @@
     android:layout_gravity="center_horizontal"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="start game"
+        android:onClick="launchGame"
+        />
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_centerInParent="true"
@@ -64,7 +74,7 @@
                 android:layout_height="26dp"
                 android:textSize="13dp"
                 android:textAllCaps="false"
-                android:background="#3B5998"
+                android:background="#3B5996"
                 android:textColor="#FFFFFF"
                 android:text="Click to Logout"
                 android:id="@+id/logout_button"/>

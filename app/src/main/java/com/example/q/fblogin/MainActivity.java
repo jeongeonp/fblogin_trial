@@ -135,6 +135,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void launchGame(View view) {
+        Intent intent = new Intent(this, game.class);
+        startActivity(intent);
+    }
+
     private void getData(JSONObject object) {
         try{
             URL profile_picture = new URL("https://graph.facebook.com/" + object.getString("id")+"/picture?width=250&height=250");
